@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: a84993442097f4a55b0821d7c5cf8226
+timeCreated: 1444054354
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 18679
+  packageName: 2D Football Pack
+  packageVersion: 3.0.0
+  assetPath: Assets/catch_game_assets_volume4/prefabs/coin_gold.prefab
+  uploadId: 286072

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 021287314f6a0430182f7bb9cdd8af6e
+timeCreated: 1444054346
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 18679
+  packageName: 2D Football Pack
+  packageVersion: 3.0.0
+  assetPath: Assets/catch_game_assets_volume4/prefabs/hex_bronze.prefab
+  uploadId: 286072

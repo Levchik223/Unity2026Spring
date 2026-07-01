@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: e415c78854fc64280b64d97dcbe88fe2
+timeCreated: 1444220060
+licenseType: Store
+TextScriptImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 18679
+  packageName: 2D Football Pack
+  packageVersion: 3.0.0
+  assetPath: Assets/catch_game_assets_volume4/src/CREDITS.TXT
+  uploadId: 286072

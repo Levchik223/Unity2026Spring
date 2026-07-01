@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 949451689eb5a4a058d08c574db72e60
+timeCreated: 1444054368
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 18679
+  packageName: 2D Football Pack
+  packageVersion: 3.0.0
+  assetPath: Assets/catch_game_assets_volume4/prefabs/coin_bronze.prefab
+  uploadId: 286072

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 8c6c70c33d0c24068be54d0b0b1acf60
+timeCreated: 1444053430
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 18679
+  packageName: 2D Football Pack
+  packageVersion: 3.0.0
+  assetPath: Assets/catch_game_assets_volume4/animations/hex_bronze.controller
+  uploadId: 286072

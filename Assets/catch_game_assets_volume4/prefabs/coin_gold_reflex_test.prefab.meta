@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: b7f49308c32ea42ebb84ace455f0d7c7
+timeCreated: 1444054371
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 18679
+  packageName: 2D Football Pack
+  packageVersion: 3.0.0
+  assetPath: Assets/catch_game_assets_volume4/prefabs/coin_gold_reflex_test.prefab
+  uploadId: 286072
