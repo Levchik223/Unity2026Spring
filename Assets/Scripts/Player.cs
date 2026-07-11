@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.PlayerLoop;
@@ -14,6 +15,7 @@ public class Player : MonoBehaviour
     public int Score = 0;
     public HUD hud;
     
+    
     private SpriteRenderer sr;
     private Animator animator;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -25,12 +27,38 @@ public class Player : MonoBehaviour
     public int Health = 100;
     public int MaxHealth = 100;
     public int Souls = 5;
-    bool IsGamePaused = true;
+    public GameObject gameOverScreen;
+    
     public Collider2D WalkableArea;
+    public TMP_Text scoreText;
+    
+    
+    public void RemoveSoul()
+    {
+        if (Souls > 0)
+        {
+            Souls--;
+            if(hud)
+                hud.UpdateSouls(Souls); 
+            if (Souls == 0)
+            {
+                GameOver();
+            }
+        }
+    }
 
-    void AddScore(int Amount)
+    void GameOver()
+    {
+        gameOverScreen.SetActive(true);
+        GetComponent<Player>().enabled = false;
+    }
+   
+
+    public void AddScore(int Amount)
     {
         Score += Amount;
+        scoreText.text = "Score: " + Score;
+       // scoreText.text = Score.ToString();
         if (hud) 
             hud.UpdateScore(Score);
     }
@@ -53,6 +81,8 @@ public class Player : MonoBehaviour
                 hud.UpdateSouls(Souls);
         }
     }
+
+   
 
     void flipCharacter(bool flip)
     {
@@ -130,10 +160,10 @@ public class Player : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
            originalScale = transform.localScale;
-           InitPlayeData();
+           InitPlayerData();
     }
 
-    private void InitPlayeData()
+    private void InitPlayerData()
     {
         if (hud)
         {
@@ -141,41 +171,51 @@ public class Player : MonoBehaviour
             hud.UpdateSouls(Souls);
         }
     }
-    
+
+    void Start()
+    {
+        gameOverScreen.SetActive(false);
+    }
+ 
 
     // Update is called once per frame
     void Update()
     {
-       /* if(Mouse.current.leftButton.isPressed)
-            sr.color = Color.blueViolet;
-        else if (Mouse.current.leftButton.wasReleasedThisFrame)
-            sr.color = Color.red; */
-        
-       /* if (Mouse.current.scroll.ReadValue().y > 0)
-            Debug.Log("scroll up");
-        if (Mouse.current.scroll.ReadValue().y < -0)
-            Debug.Log("scroll down"); */
-       
+        /* if(Mouse.current.leftButton.isPressed)
+             sr.color = Color.blueViolet;
+         else if (Mouse.current.leftButton.wasReleasedThisFrame)
+             sr.color = Color.red; */
+
+        /* if (Mouse.current.scroll.ReadValue().y > 0)
+             Debug.Log("scroll up");
+         if (Mouse.current.scroll.ReadValue().y < -0)
+             Debug.Log("scroll down"); */
+
         //Debug.Log(Mouse.current.position.ReadValue());
         
-       // if (IsGamePaused) return;
+
+       
+    if (Keyboard.current.kKey.wasPressedThisFrame)
+       {
+          RemoveSoul();
+       }
         
         bool isWASD_pressed = false;
         if (Mouse.current.rightButton.wasPressedThisFrame)
         {
-            TakeDamage(10);
-            animator.Play(animationKick);
+            //TakeDamage(10);
+            animator.Play("PlayerKick");
         }
-        if (!isAnimationFinished(animationKick))
+        if (!isAnimationFinished("playerKick"))
             return; 
         
       
         if (Mouse.current.leftButton.wasPressedThisFrame)
         {
-            AddScore(10);
-            animator.Play(PunchAnimation);
+            //AddScore(10);
+            animator.Play("PlayerPunch");
         }
-        if (!isAnimationFinished(PunchAnimation))
+        if (!isAnimationFinished("PlayerPunch"))
             return;
         
         if (Keyboard.current.dKey.isPressed)
@@ -201,6 +241,9 @@ public class Player : MonoBehaviour
             isWASD_pressed = true;
         }
         if(!isWASD_pressed) moveCharacter(0, 0);
+        
+    
+        
        /* Vector3 mouseScreenPosition = Input.mousePosition;
         Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(mouseScreenPosition);
         mouseWorldPosition.z = 0;
@@ -214,10 +257,11 @@ public class Player : MonoBehaviour
             transform.eulerAngles = new Vector3(0, 0, -180);
         } */
        
-
+       
 
 
 
         // transform.Rotate(new Vector3(0, 0, 1), RotateAngle);
     } 
 }
+
